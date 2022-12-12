@@ -3,21 +3,21 @@ local resetNotify = true
 local editNotify = true
 local deleteNotify = true
 -- warning: this will notify for every vehicle spawned, including pedestrians. WIP to fix this.
-local spawnNotify = false
+local spawnNotify = true
 
 function onInit()
-    print("RPmanager 1.0.0 Loaded")
-    MP.RegisterEvent("OnVehicleReset", "resetVehicleHandler")
-    MP.RegisterEvent("OnVehicleEdit", "vehicleEditHandler")
-    MP.RegisterEvent("OnVehicleDelete", "vehicleDeleteHandler")
-    MP.RegisterEvent("OnVehicleSpawn", "vehicleSpawnHandler")
+    print("RPmanager 1.0.0 Loaded. Vehicle Notifications: Reset: " .. tostring(resetNotify) .. ", Edit: " .. tostring(editNotify) .. ", Delete: " .. tostring(deleteNotify) .. ", Spawn: " .. tostring(spawnNotify))
+    MP.RegisterEvent("onVehicleReset", "resetVehicleHandler")
+    MP.RegisterEvent("onVehicleEdited", "vehicleEditHandler")
+    MP.RegisterEvent("onVehicleDeleted", "vehicleDeleteHandler")
+    MP.RegisterEvent("onVehicleSpawn", "vehicleSpawnHandler")
 end
 
 -- function to notify players when someone resets their vehicle
 function resetVehicleHandler(playerID)
     if resetNotify then
         local playerName = MP.GetPlayerName(playerID)
-        MP.SendChatMessage(-1, playerName .. " has reset their car!")
+        MP.SendChatMessage(-1, "The player " .. playerName .. " has reset their car!")
     end
 end
 
@@ -25,7 +25,7 @@ end
 function vehicleEditHandler(playerID)
     if editNotify then
         local playerName = MP.GetPlayerName(playerID)
-        MP.SendChatMessage(-1, playerName .. " has edited their car!")
+        MP.SendChatMessage(-1, "The player " .. playerName .. " has edited their car!")
     end
 end
 
@@ -33,7 +33,7 @@ end
 function vehicleDeleteHandler(playerID)
     if deleteNotify then
         local playerName = MP.GetPlayerName(playerID)
-        MP.SendChatMessage(-1, playerName .. " has deleted their car!")
+        MP.SendChatMessage(-1, "The player " .. playerName .. " has deleted their car!")
     end
 end
 
@@ -41,6 +41,6 @@ end
 function vehicleSpawnHandler(playerID)
     if spawnNotify then
         local playerName = MP.GetPlayerName(playerID)
-        MP.SendChatMessage(-1, playerName .. " has spawned a car!")
+        MP.SendChatMessage(-1, "The player " .. playerName .. " has spawned a vehicle!")
     end
 end

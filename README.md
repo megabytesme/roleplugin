@@ -1,5 +1,5 @@
 # roleplugin
-Plugin for BeamMP Servers which adds useful options to a server. (currently notifications for player spawning)
+Plugin for BeamMP Servers which adds useful options to a server. (currently notifications for player actions)
 
 #### Set up:
 To install, put main.lua into the folder `Resources/Server/roleplugin` (make the folder if it doesn't exist).

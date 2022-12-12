@@ -17,7 +17,7 @@ end
 function resetVehicleHandler(playerID)
     if resetNotify then
         local playerName = MP.GetPlayerName(playerID)
-        MP.BroadcastChatMessage(playerName .. " has reset their car!")
+        MP.SendChatMessage(-1, playerName .. " has reset their car!")
     end
 end
 
@@ -25,7 +25,7 @@ end
 function vehicleEditHandler(playerID)
     if editNotify then
         local playerName = MP.GetPlayerName(playerID)
-        MP.BroadcastChatMessage(playerName .. " has edited their car!")
+        MP.SendChatMessage(-1, playerName .. " has edited their car!")
     end
 end
 
@@ -33,7 +33,7 @@ end
 function vehicleDeleteHandler(playerID)
     if deleteNotify then
         local playerName = MP.GetPlayerName(playerID)
-        MP.BroadcastChatMessage(playerName .. " has deleted their car!")
+        MP.SendChatMessage(-1, playerName .. " has deleted their car!")
     end
 end
 
@@ -41,6 +41,6 @@ end
 function vehicleSpawnHandler(playerID)
     if spawnNotify then
         local playerName = MP.GetPlayerName(playerID)
-        MP.BroadcastChatMessage(playerName .. " has spawned a car!")
+        MP.SendChatMessage(-1, playerName .. " has spawned a car!")
     end
 end
